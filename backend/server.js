@@ -23,4 +23,8 @@ app.use('/api', (req, res) => res.status(404).json({ message: 'API route not fou
 
 ensureDefaultAdmin();
 
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+}
+
+module.exports = app;
